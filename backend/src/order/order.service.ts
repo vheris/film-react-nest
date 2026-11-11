@@ -3,7 +3,8 @@ import { randomUUID } from 'node:crypto';
 
 import { FilmsRepository } from '../repository/films.repository';
 import { Film } from '../films/schemas/film.schema';
-import { CreateOrderDto, OrderResponseDto } from './dto/order.dto';
+import { ListResponseDto } from '../common/dto/list-response.dto';
+import { CreateOrderDto, OrderResultDto } from './dto/order.dto';
 
 interface SessionSeats {
   filmId: string;
@@ -15,7 +16,7 @@ interface SessionSeats {
 export class OrderService {
   constructor(private readonly filmsRepository: FilmsRepository) {}
 
-  async create(dto: CreateOrderDto): Promise<OrderResponseDto> {
+  async create(dto: CreateOrderDto): Promise<ListResponseDto<OrderResultDto>> {
     const tickets = dto?.tickets;
     if (!Array.isArray(tickets) || tickets.length === 0) {
       throw this.error('Не выбрано ни одного билета');

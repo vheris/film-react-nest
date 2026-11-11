@@ -19,13 +19,3 @@ export class ScheduleDto {
   price: number;
   taken: string[];
 }
-
-export class FilmsListResponseDto {
-  total: number;
-  items: FilmDto[];
-}
-
-export class ScheduleListResponseDto {
-  total: number;
-  items: ScheduleDto[];
-}

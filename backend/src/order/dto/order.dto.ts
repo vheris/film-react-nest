@@ -16,8 +16,3 @@ export class CreateOrderDto {
 export class OrderResultDto extends TicketDto {
   id: string;
 }
-
-export class OrderResponseDto {
-  total: number;
-  items: OrderResultDto[];
-}
